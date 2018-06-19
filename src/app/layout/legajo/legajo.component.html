@@ -32,12 +32,5 @@
     </table>
 </div>
 
-<div *ngIf="selectedLegajo">
-  <h2>{{ selectedLegajo.name | uppercase }} Details</h2>
-  <div><span>id: </span>{{selectedLegajo.id}}</div>
-  <div>
-    <label>name:
-      <input [(ngModel)]="selectedLegajo.name" placeholder="name">
-    </label>
-  </div>
-</div>
+
+<app-legajo-detalle [legajo]="selectedLegajo"></app-legajo-detalle>
