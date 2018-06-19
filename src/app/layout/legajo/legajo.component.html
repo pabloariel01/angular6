@@ -1,3 +1,43 @@
-<p>
-  legajo works!
-</p>
+<!-- <h2>{{ legajo.name | uppercase}} Details</h2> -->
+<h2>legajos</h2>
+<!-- <ul class="legajos">
+  <li *ngFor="let legajo of legajos">
+    <div><span>id: </span>{{legajo.id}}</div>
+    <div><span>name: </span>{{legajo.name}}</div>
+    <div><span>tipo: </span>{{legajo.type}}</div>
+
+  </li>
+</ul> -->
+
+<div class="card mb-12">
+    <div class="card-header">Legajos</div>
+    <table class="card-body table table-hover">
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>nombre</th>
+            <th>tipo</th>
+            <!-- <th>Username</th> -->
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let legajo of legajos" (click)="onSelect(legajo)">
+            <th scope="row">{{legajo.id}}</th>
+            <td>{{legajo.name}}</td>
+            <td>{{legajo.type}}</td>
+            <!-- <td>@mdo</td> -->
+        </tr>
+
+        </tbody>
+    </table>
+</div>
+
+<div *ngIf="selectedLegajo">
+  <h2>{{ selectedLegajo.name | uppercase }} Details</h2>
+  <div><span>id: </span>{{selectedLegajo.id}}</div>
+  <div>
+    <label>name:
+      <input [(ngModel)]="selectedLegajo.name" placeholder="name">
+    </label>
+  </div>
+</div>
