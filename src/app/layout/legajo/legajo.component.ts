@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { routerTransition } from '../../router.animations';
 
 import {Legajo} from "./legajo";
-import {LEGAJOS} from "./mock-legajo";
+
+import {LegajoService} from "../legajo.service";
 
 @Component({
   selector: 'app-legajo',
@@ -11,16 +12,24 @@ import {LEGAJOS} from "./mock-legajo";
   animations: [routerTransition()]
 })
 export class LegajoComponent implements OnInit {
-  legajos=LEGAJOS; 
+  legajos:Legajo[];
   selectedLegajo:Legajo;
 
   onSelect(legajo:Legajo):void{
     this.selectedLegajo=legajo;
   }
 
-  constructor() { }
+  getLegajos():void{
+    this.legajoService.getLegajos()
+      .subscribe(legajo=>this.legajos=legajo);
+  }
+
+  constructor(
+      private legajoService:LegajoService
+  ) { }
 
   ngOnInit() {
+    this.getLegajos();
   }
 
 }
