@@ -11,7 +11,6 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { HeaderComponent } from './components/header/header.component';
 import { NotificacionesComponent } from './notificaciones/notificaciones.component';
 
-import {legajoFilterPipe} from './legajoTextFilter';
 
 @NgModule({
     imports: [
@@ -20,9 +19,7 @@ import {legajoFilterPipe} from './legajoTextFilter';
         TranslateModule,
         NgbDropdownModule.forRoot(),
         FormsModule,
-        HttpClientModule,
-        
-        
+        HttpClientModule,    
 
     ],
     declarations: [
@@ -30,7 +27,7 @@ import {legajoFilterPipe} from './legajoTextFilter';
         SidebarComponent, 
         HeaderComponent, 
         NotificacionesComponent,
-        // legajoFilterPipe
+        
     ]
 })
 export class LayoutModule {}

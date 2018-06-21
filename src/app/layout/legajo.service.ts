@@ -13,9 +13,9 @@ import { catchError, map, tap } from 'rxjs/operators';
 })
 export class LegajoService {
   private legajosUrl = 'api/legajos';  // URL to web api
-
+  
   getLegajos():Observable<Legajo[]>{
-    this.notifiacionservice.addNotificacion("legajos completados")
+     this.notifiacionservice.addNotificacion("legajos completados")
     return this.http.get<Legajo[]>(this.legajosUrl).pipe(
       tap(legajo=>this.log("carga de legajos")),
       catchError(this.handleError("getLegajos",[]))

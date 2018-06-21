@@ -15,6 +15,13 @@ export class InMemoryDataService implements InMemoryDbService{
             { id: 20, name: 'Tornado',type:'DNI' }
           ];
 
-          return {legajos};
+        const users= [
+            {id: 11,usuario:"user1",password:"qweasd",token:"asdas1234"},
+            {id: 12,usuario:"user2",password:"qweasd",token:"asdas1236"},
+            {id: 13,usuario:"user3",password:"qweasd",token:"asdas1237"},
+            {id: 13,usuario:"1",password:"1",token:"asdas1237"}
+        ];
+
+          return {legajos,users};
     }
 }
