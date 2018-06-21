@@ -8,7 +8,11 @@
 
   </li>
 </ul> -->
-
+<!-- <app-legajo-search></app-legajo-search> -->
+<label>buscar:
+    <input type="text" [(ngModel)]="filter.name" placeholder="nombre">
+    <input type="number" [(ngModel)]="filter.id" placeholder="id">
+  </label>
 <div class="card mb-12">
     <div class="card-header">Legajos</div>
     <table class="card-body table table-hover">
@@ -21,7 +25,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let legajo of legajos" (click)="onSelect(legajo)">
+        <tr *ngFor="let legajo of legajos | legajoPipe : filter" (click)="onSelect(legajo)">
             <th scope="row">{{legajo.id}}</th>
             <td>{{legajo.name}}</td>
             <td>{{legajo.type}}</td>

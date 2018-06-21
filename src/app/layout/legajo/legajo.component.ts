@@ -15,6 +15,9 @@ export class LegajoComponent implements OnInit {
   legajos:Legajo[];
   selectedLegajo:Legajo;
 
+
+  filter: Legajo = new Legajo();
+
   onSelect(legajo:Legajo):void{
     this.selectedLegajo=legajo;
   }

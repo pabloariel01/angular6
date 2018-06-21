@@ -7,13 +7,21 @@ import { LegajoRoutingModule } from './legajo-routing.module';
 import { LegajoComponent } from './legajo.component';
 import { LegajoDetalleComponent } from './legajo-detalle/legajo-detalle.component';
 
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { LegajoSearchComponent } from './legajo-search/legajo-search.component';
+
+import {legajoFilterPipe} from '../legajoTextFilter';
 
 @NgModule({
   imports: [
     CommonModule,    
     LegajoRoutingModule,
-    FormsModule   
+    FormsModule,
+    HttpClientModule
+
+     
   ],
-  declarations: [LegajoComponent,LegajoDetalleComponent]
+  declarations: [LegajoComponent,LegajoDetalleComponent, LegajoSearchComponent,
+    legajoFilterPipe]
 })
 export class LegajoModule { }
