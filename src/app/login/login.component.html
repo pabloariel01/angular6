@@ -10,10 +10,10 @@
                     </div>
 
                     <div class="form-group">
-                        <input #pssw type="password"  class="form-control input-underline input-lg" id="passw" placeholder="Password">
+                        <input #pssw type="password" (keydown.enter)="onLoggedin(userName.value,pssw.value)"  class="form-control input-underline input-lg" id="passw" placeholder="Password">
                     </div>
                 </div>
-                <a class="btn rounded-btn"  (click)="onLoggedin(userName.value,pssw.value)"> Ingresar </a>
+                <a class="btn rounded-btn" (click)="onLoggedin(userName.value,pssw.value)"> Ingresar </a>
                 &nbsp;
                 <a class="btn rounded-btn" [routerLink]="['/signup']">Registrarse</a>
             </form>

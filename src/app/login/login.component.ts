@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
 
     onLoggedin(user:string,pssw:string):void {
         // console.log(user,pssw)
-        this.authenticationService.login(user,pssw,13).subscribe(x=>console.log(x))
+        this.authenticationService.login(user,pssw).subscribe(x=>console.log(x))
         localStorage.setItem('isLoggedin', 'true');
     }
 }

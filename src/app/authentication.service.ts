@@ -14,13 +14,16 @@ const httpOptions = {
 })
 export class AuthenticationService {
 
-  private usuariosUrl = 'api/users/';  // URL to web api
+  private usuariosUrl = 'http://200.32.52.6:8081/login';  // 
 
-  login (usuario:string,password:string,id:number): Observable<Usuario>{
-    const url=`${this.usuariosUrl}/${id}`;
-    
+  login (usuario:string,password:string): Observable<Usuario>{
+    const url=`${this.usuariosUrl}`;
+    const usr={
+      "username": usuario,
+      "password": password
+    };
     // console.log(usuario,pssw)
-    return this.http.get<Usuario>(url,httpOptions)
+    return this.http.post<Usuario>(url,usr,httpOptions)
         
     // .pipe(tap(
     //   user => {
