@@ -12,6 +12,8 @@ export class SidebarComponent {
     showMenu: string = '';
     pushRightClass: string = 'push-right';
 
+    
+
     constructor(private translate: TranslateService, public router: Router) {
         this.translate.addLangs(['en', 'fr', 'ur', 'es', 'it', 'fa', 'de']);
         this.translate.setDefaultLang('es');
@@ -28,7 +30,7 @@ export class SidebarComponent {
             }
         });
     }
-
+    
     eventCalled() {
         this.isActive = !this.isActive;
     }

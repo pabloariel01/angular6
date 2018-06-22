@@ -6,7 +6,7 @@ import { routerTransition } from '../router.animations';
 import {  AuthenticationService } from '../authentication.service';
 
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { first,filter } from 'rxjs/operators';
+
 
 @Component({
     selector: 'app-login',
@@ -29,7 +29,19 @@ export class LoginComponent implements OnInit {
 
     onLoggedin(user:string,pssw:string):void {
         // console.log(user,pssw)
-        this.authenticationService.login(user,pssw).subscribe(x=>console.log(x))
-        localStorage.setItem('isLoggedin', 'true');
+        this.authenticationService.login(user,pssw)
+            .subscribe(credentials=>{
+                // console.log(credentials)
+                if (!!credentials.token){
+                    this.router.navigate(['/dashboard'])
+                }else{
+                    alert("error al iniciar sesion")
+                }
+            }
+                // credentials=>console.log(credentials)
+            );
+        
     }
+
+
 }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {Observable,of} from "rxjs";
-import { map,tap,first } from 'rxjs/operators';
+import { catchError, map, tap } from 'rxjs/operators';
 
 import {Usuario} from './usuario';
 
@@ -23,29 +23,41 @@ export class AuthenticationService {
       "password": password
     };
     // console.log(usuario,pssw)
-    return this.http.post<Usuario>(url,usr,httpOptions)
-        
-    // .pipe(tap(
-    //   user => {
-    //     if (user.password==usuario&&user.password==password){
-    //       console.log(user)
-    //   // login successful if there's a jwt token in the response
-    //   // if (user && user.token) {
-    //       // store user details and jwt token in local storage to keep user logged in between page refreshes
-    //       localStorage.setItem('currentUser', JSON.stringify(user));
-    //   // }
+    return this.http.post<any>(url,usr,httpOptions)
+    .pipe(
+      tap(
+        credentials=>{
+          localStorage.setItem('credentials',JSON.stringify(credentials))
+          localStorage.setItem('isLoggedin', 'true');
+        }
+      ),
+      catchError(this.handleError('login',{}))
 
-    //     return user;
-    //     }
-    //  })
-    
-    // );
+    )
+        
+ 
   }
 
 
   logout():void{
     localStorage.removeItem('currentUser');
+    localStorage.removeItem('isLoggedin');
+    localStorage.removeItem('credentials');
   }
 
   constructor(private http: HttpClient) { }
+
+  private handleError<T> (operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+   
+      // TODO: send the error to remote logging infrastructure
+      console.error(error); // log to console instead
+   
+      // TODO: better job of transforming error for user consumption
+      console.log(`${operation} failed: ${error.message}`);
+   
+      // Let the app keep running by returning an empty result.
+      return of(result as T);
+    };
+  }
 }
