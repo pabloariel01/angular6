@@ -12,12 +12,15 @@ import { LegajoSearchComponent } from './legajo-search/legajo-search.component';
 
 import {legajoFilterPipe} from '../legajoTextFilter';
 
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+
 @NgModule({
   imports: [
     CommonModule,    
     LegajoRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    PdfViewerModule
 
      
   ],

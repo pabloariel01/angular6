@@ -9,6 +9,9 @@ import {Legajo} from "../legajo"
 export class LegajoDetalleComponent implements OnInit {
   @Input() legajo: Legajo;
 
+  // pdfSrc: string = 'https://www.adobe.com/be_en/active-use/pdf/Alice_in_Wonderland.pdf';
+  pdfSrc: string = '/assets/pdf/openstack-install-guide-essex.pdf';
+  
   constructor() { }
 
   ngOnInit() {

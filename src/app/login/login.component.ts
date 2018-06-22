@@ -6,7 +6,7 @@ import { routerTransition } from '../router.animations';
 import {  AuthenticationService } from '../authentication.service';
 
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { first } from 'rxjs/operators';
+import { first,filter } from 'rxjs/operators';
 
 @Component({
     selector: 'app-login',
@@ -28,8 +28,8 @@ export class LoginComponent implements OnInit {
     }
 
     onLoggedin(user:string,pssw:string):void {
-        console.log(user,pssw)
-        this.authenticationService.login(user,pssw,12).subscribe(x=>console.log(x))
+        // console.log(user,pssw)
+        this.authenticationService.login(user,pssw,13).subscribe(x=>console.log(x))
         localStorage.setItem('isLoggedin', 'true');
     }
 }
