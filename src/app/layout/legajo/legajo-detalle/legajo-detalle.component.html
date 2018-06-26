@@ -1,22 +1,27 @@
 <div *ngIf="legajo">
-  <h2>{{ legajo.name | uppercase }} Details</h2>
-  <div><span>id: </span>{{legajo.id}}</div>
-  <div>
-    <label>name:
-      <input [(ngModel)]="legajo.name" placeholder="name">
-    </label>
+  <div class="row">
+  <div class="col-md-3">
+    <h2>{{ legajo.name | uppercase }} Details</h2>
+    <div><span>id: </span>{{legajo.id}}</div>
+    <div><span>Nombre: </span>{{legajo.name}}</div>
+    <!-- <div>
+      <label>name:
+        <input [(ngModel)]="legajo.name" placeholder="name">
+      </label>
+    </div> -->
   </div>
 
-
-  <object data='/assets/pdf/openstack-install-guide-essex.pdf' type="application/pdf" width="100%" height="800px">
-    <p><b>Descargar</b>: This browser does not support PDFs. Please download the PDF to view it: <a href='/assets/pdf/openstack-install-guide-essex.pdf'>Descargar en PDF</a>.</p>
- </object>
-  <!-- <input type="text" placeholder="PDF src" [(ngModel)]="pdfSrc">
-  <div style="border: 2px black">
-    <pdf-viewer [src]="pdfSrc" 
-                [render-text]="true"
-                style="display: block;"
-    ></pdf-viewer>
-  </div> -->
-  
+  <div class="col-md-9">
+      <object data='/assets/pdf/openstack-install-guide-essex.pdf' type="application/pdf" width="100%" height="800px">
+        <p><b>Descargar</b>: no se puede visualizar en este navegador. por favor descargue el PDF: <a href='/assets/pdf/openstack-install-guide-essex.pdf'>Descargar en PDF</a>.</p>
+    </object>
+      <!-- <input type="text" placeholder="PDF src" [(ngModel)]="pdfSrc">
+      <div style="border: 2px black">
+        <pdf-viewer [src]="pdfSrc" 
+                    [render-text]="true"
+                    style="display: block;"
+        ></pdf-viewer>
+      </div> -->
+  </div>
+</div>
 </div>

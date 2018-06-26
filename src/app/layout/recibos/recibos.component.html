@@ -1,0 +1,38 @@
+<h3>Recibos de sueldo</h3>
+<div>
+    <h5>buscar:</h5>
+    <label>Legajo:
+        <input type="number" [(ngModel)]="filter.legajo" placeholder="Nro de Legajo">
+    </label>
+    <label>Id:
+        <input type="number" [(ngModel)]="filter.mes" placeholder="mes">
+    </label>
+</div>
+<div class="card mb-12">
+    <div class="card-header">Legajos</div>
+    <table class="card-body table table-hover">
+        <thead>
+        <tr>
+            <th>Legajo</th>
+            <th>Año</th>
+            <th>Mes</th>
+            <th>Nro Liquidacion</th>
+            <th>Tipo</th>
+            <th>Comentarios</th>
+            <th>Descarga</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let recibo of recibos | filterPipe : filter">
+            <td scope="row">{{recibo.legajo}}</td>
+            <td>{{recibo.anio}}</td>
+            <td>{{recibo.mes}}</td>
+            <td>{{recibo.nroLiquidacion}}</td>
+            <td>{{recibo.tipo}}</td>
+            <td>{{recibo.comentarios}}</td>
+            <td><a  routerLink="/legajo/">zaraza</a></td>
+        </tr>
+
+        </tbody>
+    </table>
+</div>

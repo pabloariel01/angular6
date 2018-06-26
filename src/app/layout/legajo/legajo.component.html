@@ -1,5 +1,5 @@
 <!-- <h2>{{ legajo.name | uppercase}} Details</h2> -->
-<h2>legajos</h2>
+<h2>Legajos</h2>
 <!-- <ul class="legajos">
   <li *ngFor="let legajo of legajos">
     <div><span>id: </span>{{legajo.id}}</div>
@@ -9,10 +9,13 @@
   </li>
 </ul> -->
 <!-- <app-legajo-search></app-legajo-search> -->
-<label>buscar:
+<h5>buscar:</h5>
+<label>Nombre:
     <input type="text" [(ngModel)]="filter.name" placeholder="nombre">
+</label>
+<label>Id:
     <input type="number" [(ngModel)]="filter.id" placeholder="id">
-  </label>
+</label>
 <div class="card mb-12">
     <div class="card-header">Legajos</div>
     <table class="card-body table table-hover">
@@ -25,7 +28,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let legajo of legajos | legajoPipe : filter" (click)="onSelect(legajo)">
+        <tr *ngFor="let legajo of legajos | filterPipe : filter" (click)="onSelect(legajo)">
             <th scope="row">{{legajo.id}}</th>
             <td>{{legajo.name}}</td>
             <td>{{legajo.type}}</td>
@@ -37,4 +40,4 @@
 </div>
 
 
-<app-legajo-detalle [legajo]="selectedLegajo"></app-legajo-detalle>
+<!-- <app-legajo-detalle [legajo]="selectedLegajo"></app-legajo-detalle> -->

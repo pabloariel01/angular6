@@ -22,6 +22,13 @@ export class InMemoryDataService implements InMemoryDbService{
             {id: 13,usuario:"1",password:"1",token:"asdas1237"}
         ];
 
-          return {legajos,users};
+        const recibos=[
+            {id: 0,legajo: 273665,anio : 2017,mes: 6,nroLiquidacion:3423256,tipo:"sueldo",nombre:"archivo de sueldos",comentarios:"zaraza"},
+            {id: 1,legajo: 273634,anio : 2017,mes: 6,nroLiquidacion:3423256,tipo:"sueldo",nombre:"archivo de sueldos",comentarios:"zaraza"},
+            {id: 2,legajo: 273645,anio : 2017,mes: 3,nroLiquidacion:3423256,tipo:"aguinaldo",nombre:"archivo de sueldos",comentarios:"zaraza"},
+            {id: 3,legajo: 273663,anio : 2017,mes: 4,nroLiquidacion:3423256,tipo:"sueldo",nombre:"archivo de sueldos",comentarios:"zaraza"}
+        ]
+
+          return {legajos,users,recibos};
     }
 }

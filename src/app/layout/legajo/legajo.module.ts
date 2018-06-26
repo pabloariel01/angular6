@@ -7,12 +7,12 @@ import { LegajoRoutingModule } from './legajo-routing.module';
 import { LegajoComponent } from './legajo.component';
 import { LegajoDetalleComponent } from './legajo-detalle/legajo-detalle.component';
 
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import {  HttpClientModule } from '@angular/common/http';
 import { LegajoSearchComponent } from './legajo-search/legajo-search.component';
 
-import {legajoFilterPipe} from '../legajoTextFilter';
+import {FilterPipe} from '../FilterPipe';
 
-import { PdfViewerModule } from 'ng2-pdf-viewer';
+// import { PdfViewerModule } from 'ng2-pdf-viewer';
 
 @NgModule({
   imports: [
@@ -20,11 +20,11 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
     LegajoRoutingModule,
     FormsModule,
     HttpClientModule,
-    PdfViewerModule
+    // PdfViewerModule
 
      
   ],
   declarations: [LegajoComponent,LegajoDetalleComponent, LegajoSearchComponent,
-    legajoFilterPipe]
+    FilterPipe]
 })
 export class LegajoModule { }
